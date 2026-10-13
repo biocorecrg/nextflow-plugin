@@ -91,6 +91,7 @@ jobs:
         run: |
           npm install -g "opencode-ai@${OPENCODE_VERSION}"
           mkdir -p "${{ runner.temp }}/e2e"
+          cd "${{ runner.temp }}/e2e"
           printf '{"plugin":["file:%s"]}' "$GITHUB_WORKSPACE" > "${{ runner.temp }}/e2e/opencode.json"
           opencode debug config > "${{ runner.temp }}/e2e/config.json"
           opencode debug skill > "${{ runner.temp }}/e2e/skills.txt"
